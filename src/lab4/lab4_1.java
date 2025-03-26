@@ -35,7 +35,7 @@ public class lab4_1 {
 		
 		//System.out.println(sb1 + " " + sb2 + " " + sb3);
 		
-		
+		//Task1
 		Pet pet1 = new Pet("Cat", "White");
 		Pet pet2 = new Pet("Sausage Dog", "Brown");
 		Pet pet3 = new Pet(); // default constructor
@@ -56,7 +56,17 @@ public class lab4_1 {
 		
 		pet2.setAge(9.5);
 		System.out.println(pet2.type + "'s age is: " + pet2.getAge());
-
+		
+		// Task 2
+		Clock clock1 = new Clock(3, 45, 01);
+		Clock clock2 = new Clock(4, 58, 59);
+		Clock clock3 = new Clock(7, 59, 59);
+		Clock clock4 = new Clock(12, 59, 59);
+		
+		System.out.println(clock1 + ", " + clock1.tick());
+		System.out.println(clock2 + ", " + clock2.tick());
+		System.out.println(clock3 + ", " + clock3.tick());
+		System.out.println(clock4 + ", " + clock4.tick());
 
 	}
 
