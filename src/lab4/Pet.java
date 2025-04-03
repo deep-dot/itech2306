@@ -2,10 +2,10 @@ package lab4;
 
 public class Pet {
 
-	public String type;
-	String colour;
-	double age;
-	double price;
+	private String type;
+	private String colour;
+	private double age;
+	private double price;
 	
 	public Pet() {
 		type = null;

@@ -1,9 +1,9 @@
 package lab4;
 
 public class Clock {
-	int hours;
-	int minutes;
-	int seconds;
+	private int hours;
+	private int minutes;
+	private int seconds;
 	
 	public Clock(int newHours, int newMinutes, int newSeconds) {
 		setHours(newHours);

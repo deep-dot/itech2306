@@ -77,6 +77,27 @@ public class MainProgram {
 		hoyts.setOpenHours("Mon-Sat 9:00-21:00");
 		System.out.println("  the updated opening hours are: " + hoyts.getOpenHours() );
 		System.out.println("---------\n");
+		
+		
+		RoomSchedule rs = new RoomSchedule();
+		//RoomSchedule rs8 = new RoomSchedule();
+		
+		rs.addMovie(movieBarbie);
+		rs.addMovie(movieBadBoys);
+//		rs.addMovie(movieSonic);
+//		rs.addMovie(movieBarbie);
+//		rs.addMovie(null);
+//		rs.addMovie(movieBadBoys);
+//		rs.addMovie(movieSonic);
+//		rs.addMovie(movieSonic);
+		
+		Movie [] movies = rs.getTotalMovies();
+		System.out.println("first movies is: "  + movies[0]);
+		System.out.println("third movies is: "  + movies[2]);
+		System.out.println("all movies are:");
+		for(Movie m:movies) {
+			System.out.println(m);
+		}
 	}
 	
 	public void start()
