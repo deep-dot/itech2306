@@ -1,4 +1,5 @@
 package lab5;
+import java.util.ArrayList;
 
 public class MainProgram {
 	public static void main(String[] args) {
@@ -77,13 +78,13 @@ public class MainProgram {
 
 		// CONSTRUCT/INSTANTIATE some objects, and assign their references to the
 		// variables:
-		village = new MovieTheatre("Village Cinemas, Melbourne Central", "Mon-Fri 8:00-21:00, Sat-Sun 8:00-23:30", 3);
-		hoyts = new MovieTheatre("Hoyts, Rundle Mall Adelaide", "Mon-Thur 8:00-20:00, Fri-Sun 8:00-Midnight", 4);
+		village = new MovieTheatre("Village Cinemas, Melbourne Central", "Mon-Fri 8:00-21:00, Sat-Sun 8:00-23:30", 2);
+		hoyts = new MovieTheatre("Hoyts, Rundle Mall Adelaide", "Mon-Thur 8:00-20:00, Fri-Sun 8:00-Midnight", 3);
 
 		// Call some Getter methods:
 		System.out.println("First theatre is at: " + village.getLocation());
 		System.out.println("  opening hours are: " + village.getOpenHours());
-//		System.out.println("  it has " + village.getTotalRooms() + " rooms to show movies in");
+		System.out.println("  it has " + village.getTotalRooms() + " rooms to show movies in");
 
 		System.out.println("Second is: " + hoyts.toString());
 		System.out.println("  opening hours are: " + hoyts.getOpenHours());
@@ -93,55 +94,57 @@ public class MainProgram {
 		System.out.println("  the updated opening hours are: " + hoyts.getOpenHours());
 		System.out.println("---------\n");
 
-		RoomSchedule rs1;
-		rs1 = new RoomSchedule();
+//		RoomSchedule rs1;
+//		rs1 = new RoomSchedule();
+//
+//		rs1.addMovie(movieBarbie);
+//		rs1.addMovie(movieBadBoys);
+//		rs1.addMovie(movieSonic);
+//		rs1.addMovie(movieBarbie);
+//		rs1.addMovie(null);
+//		rs1.addMovie(movieBadBoys);
+//		rs1.addMovie(movieSonic);
+//		rs1.addMovie(movieSonic);
+//		
+//		RoomSchedule rs2;
+//		rs2 = new RoomSchedule();
+//
+//		rs2.addMovie(movieSonic);
+//		rs2.addMovie(movieBarbie);
+//		rs2.addMovie(movieBadBoys);
+//		rs2.addMovie(movieSonic);
+//
+//		System.out.println("first movies is: " + rs1.getMovie(0));
+//		System.out.println("third movies is: " + rs1.getMovie(2));
+//
+//		ArrayList<RoomSchedule> villageRoomMovies = village.getRoomSchedule();
+//		ArrayList<RoomSchedule> hoytsRoomMovies = hoyts.getRoomSchedule();
 
-		rs1.addMovie(movieBarbie);
-		rs1.addMovie(movieBadBoys);
-		rs1.addMovie(movieSonic);
-		rs1.addMovie(movieBarbie);
-		rs1.addMovie(null);
-		rs1.addMovie(movieBadBoys);
-		rs1.addMovie(movieSonic);
-		rs1.addMovie(movieSonic);
 		
-		RoomSchedule rs2;
-		rs2 = new RoomSchedule();
+//		// Task 3
 
-		rs2.addMovie(movieSonic);
-		rs2.addMovie(movieBarbie);
-		rs2.addMovie(movieBadBoys);
-		rs2.addMovie(movieSonic);
-
-		System.out.println("first movies is: " + rs1.getMovie(0));
-		System.out.println("third movies is: " + rs1.getMovie(2));
-
-		Movie[] movies1 = rs1.getAllMovies();
-		Movie[] movies2 = rs2.getAllMovies();
-//		System.out.println("all movies are:");
-//		for(Movie m:movies) {
-//			System.out.println(m);
-//		}
-
-		// Task 3
-		village.addRoomSchedule(rs1);
-		hoyts.addRoomSchedule(rs2);
+		System.out.println(village);
 		
-		System.out.println("\n");
-		System.out.println("Added RoomSchedule to " + village.getLocation() + ", total added: " + village.getRoomCount());
-		System.out.println("Schedule is:");
-		for (Movie m : movies1) {
-			System.out.println(m);
+		village.addMovieToRoomSchedule(1, movieBarbie);
+		village.addMovieToRoomSchedule(1, movieBadBoys);
+		village.addMovieToRoomSchedule(2, movieSonic);
+		village.addMovieToRoomSchedule(1, movieBarbie);
+		village.addMovieToRoomSchedule(1, movieBadBoys);
+		village.addMovieToRoomSchedule(2, movieSonic);
+		village.addMovieToRoomSchedule(1, movieBarbie);
+		village.addMovieToRoomSchedule(1, movieBadBoys);
+		village.addMovieToRoomSchedule(2, movieSonic);
+		village.addMovieToRoomSchedule(1, movieBarbie);
+		village.addMovieToRoomSchedule(1, movieBadBoys);
+		village.addMovieToRoomSchedule(2, movieSonic);
+
+		Movie m = village.getMovieFromRoomSchedule(2, 3); // Get 4th movie in Room 2
+		if (m != null) {
+			System.out.println("Movie found: " + m);
+		} else {
+			System.out.println("No movie found at that position.");
 		}
-		
-		System.out.println("\n");
-		System.out.println("Added RoomSchedule to " + hoyts.getLocation() + ", total added: " + hoyts.getRoomCount());
-		System.out.println("Schedule is: ");
-		for (Movie m : movies2) {
-			System.out.println(m);
-		}
-		
-		System.out.println("\n");
+
 	}
 
 	public void start() {

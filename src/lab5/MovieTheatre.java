@@ -18,25 +18,65 @@ public class MovieTheatre {
 		// distinguish them from the parameters, because the parameters are currently "shadowing" (hiding) the fields...
 		this.location = location;
 		this.openHours = openHours;
-		scheduleForRoom = new ArrayList<>(0);
+		scheduleForRoom = new ArrayList<>();
 		roomCount = 0;
 		totalRoomsCount = totalRooms;
+		
+		scheduleForRoom = new ArrayList<>();  // create empty list
+
+		// Fill the list with RoomSchedule objects
+		for (int i = 1; i <= totalRooms; i++) {
+			scheduleForRoom.add(new RoomSchedule(i));
+		}
 	}
 	
-	public void addRoomSchedule (RoomSchedule addNext) {
+	public boolean addMovieToRoomSchedule(int roomNum, Movie movieInRoom) {
+		int index = roomNum - 1;
+
+		if (movieInRoom != null && index >= 0 && index < scheduleForRoom.size()) {
+			RoomSchedule room = scheduleForRoom.get(index);
+			boolean success = room.addMovie(movieInRoom);
+
+			if (success) {
+				System.out.println("Movie added successfully to Room " + roomNum + ": " + movieInRoom);
+				return true;
+			} else {
+				System.out.println("Failed to add movie to Room " + roomNum + ": Room already has 6 movies scheduled.");
+			}
+		} else {
+			System.out.println("Invalid room number or movie is null.");
+		}
+		return false;
+	}
+
+	public Movie getMovieFromRoomSchedule(int roomNum, int index) {
+		int roomIndex = roomNum - 1; // Convert room number to 0-based index
 		
-		if(roomCount < totalRoomsCount) {
-		scheduleForRoom.add(addNext);
-		roomCount++;
-	    } else {
-	        System.out.println("Cannot add more rooms — limit of " + totalRoomsCount + " reached.");
-	    }
-		
+		if (roomIndex >= 0 && roomIndex < scheduleForRoom.size()) {
+			RoomSchedule room = scheduleForRoom.get(roomIndex);
+			Movie movie = room.getMovie(index);
+			if (movie != null) {
+				return movie;
+			}
+		}
+		return null; // Either invalid room or no movie at that index
 	}
 	
+	public void addNewRoom() {
+	    int newRoomNumber = scheduleForRoom.size() + 1;
+	    scheduleForRoom.add(new RoomSchedule(newRoomNumber));
+	    totalRoomsCount++;
+	    System.out.println("New room (Room " + newRoomNumber + ") added successfully!");
+	}
+
 	// Getters for all fields:
-	public int getRoomCount() {
-	    return roomCount;
+	
+	public ArrayList<RoomSchedule> getRoomSchedule() {
+	    return scheduleForRoom;
+	}
+
+	public int getTotalRooms() {
+	    return totalRoomsCount;
 	}
 	
 	public String getLocation()
@@ -65,7 +105,7 @@ public class MovieTheatre {
 	// A toString method:
 	public String toString()
 	{
-		String description = location + " (opening hours: " + openHours + ")";
+		String description = location + " (opening hours: " + openHours + ")" + ", Total rooms: " + totalRoomsCount;
 		return description;
 	}
 }

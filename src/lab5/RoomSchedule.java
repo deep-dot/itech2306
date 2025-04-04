@@ -6,25 +6,25 @@ public class RoomSchedule {
 	private static final int MAX = 6;
 	private Movie[] scheduledMovies;
 	private int numberOfScheduledMovies;
-	private boolean realMovie = false;
+	private int roomNumber;
 
-	public RoomSchedule() {
+	public RoomSchedule(int roomNum) {
+		this.roomNumber = roomNum;
 		scheduledMovies = new Movie[MAX];
 		numberOfScheduledMovies = 0;
 	}
 
-	public void addMovie(Movie nextMovie) {
-		
+	public boolean addMovie(Movie nextMovie) {
 		if (nextMovie != null && numberOfScheduledMovies < scheduledMovies.length) {
-			
 			scheduledMovies[numberOfScheduledMovies] = nextMovie;
-			//System.out.println("add movie is: " +  nextMovie + " , " + Arrays.toString(scheduledMovies));
 			numberOfScheduledMovies++;
-			realMovie = true;
+			return true;
 		} else {
-			realMovie = false;
+			// Optionally log failure reason
+			return false;
 		}
 	}
+
 
 	public Movie getMovie(int index) {
 		if (index >= 0 && index < scheduledMovies.length) {
@@ -33,8 +33,25 @@ public class RoomSchedule {
 			return null;
 		}
 	}
+	
+	public int getNumberOfScheduledMovies() {
+	    return numberOfScheduledMovies;
+	}
 
 	public Movie[] getAllMovies() {
 		return scheduledMovies;
 	}
+	
+	@Override
+	public String toString() {
+	    StringBuilder sb = new StringBuilder();
+	    sb.append("Movies scheduled in this room:\n");
+	    for (Movie m : scheduledMovies) {
+	        if (m != null) {
+	            sb.append(" - ").append(m).append("\n");
+	        }
+	    }
+	    return sb.toString();
+	}
+
 }
