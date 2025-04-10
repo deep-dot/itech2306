@@ -1,5 +1,4 @@
 package lab5;
-import java.util.Arrays;
 
 public class RoomSchedule {
 
@@ -42,10 +41,10 @@ public class RoomSchedule {
 		return scheduledMovies;
 	}
 	
-	@Override
+	//AI help to return string SringBuilder class;
 	public String toString() {
 	    StringBuilder sb = new StringBuilder();
-	    sb.append("Movies scheduled in this room:\n");
+	    sb.append("Room ").append(roomNumber).append(" - Movies scheduled:\n");
 	    for (Movie m : scheduledMovies) {
 	        if (m != null) {
 	            sb.append(" - ").append(m).append("\n");

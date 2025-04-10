@@ -94,32 +94,43 @@ public class MainProgram {
 		System.out.println("  the updated opening hours are: " + hoyts.getOpenHours());
 		System.out.println("---------\n");
 
-//		RoomSchedule rs1;
-//		rs1 = new RoomSchedule();
-//
-//		rs1.addMovie(movieBarbie);
-//		rs1.addMovie(movieBadBoys);
-//		rs1.addMovie(movieSonic);
-//		rs1.addMovie(movieBarbie);
-//		rs1.addMovie(null);
-//		rs1.addMovie(movieBadBoys);
-//		rs1.addMovie(movieSonic);
-//		rs1.addMovie(movieSonic);
-//		
-//		RoomSchedule rs2;
-//		rs2 = new RoomSchedule();
-//
-//		rs2.addMovie(movieSonic);
-//		rs2.addMovie(movieBarbie);
-//		rs2.addMovie(movieBadBoys);
-//		rs2.addMovie(movieSonic);
-//
-//		System.out.println("first movies is: " + rs1.getMovie(0));
-//		System.out.println("third movies is: " + rs1.getMovie(2));
-//
-//		ArrayList<RoomSchedule> villageRoomMovies = village.getRoomSchedule();
-//		ArrayList<RoomSchedule> hoytsRoomMovies = hoyts.getRoomSchedule();
+		RoomSchedule rs1;
+		rs1 = new RoomSchedule(1);
 
+		rs1.addMovie(movieBarbie);
+		rs1.addMovie(movieBadBoys);
+		rs1.addMovie(movieSonic);
+		rs1.addMovie(movieBarbie);
+		rs1.addMovie(null);
+		rs1.addMovie(movieBadBoys);
+		rs1.addMovie(movieSonic);
+		rs1.addMovie(movieSonic);
+		
+		RoomSchedule rs2;
+		rs2 = new RoomSchedule(2);
+
+		rs2.addMovie(movieSonic);
+		rs2.addMovie(movieBarbie);
+		rs2.addMovie(movieBadBoys);
+		rs2.addMovie(movieSonic);
+
+		System.out.println("first movie in room 1 is: " + rs1.getMovie(0));
+		System.out.println("third movie in room 2  is: " + rs2.getMovie(2));
+
+//		RoomSchedule villageRoomMovies = village.getRoomSchedule().get(1);
+//		int movieCount = villageRoomMovies.getMovieFromRoomSchedule();
+//		if (movieCount == 0) {
+//			System.out.println("No movies scheduled in this Room ");
+//		} else {
+//			System.out.println("Movies scheduled in this Room:");
+//			for (int i = 0; i < movieCount; i++) {
+//				Movie m = villageRoomMovies.getMovie(i);
+//				System.out.println((i + 1) + ". " + m);
+//			}
+//		}
+
+		System.out.println("---------\n");
+		
 		
 //		// Task 3
 

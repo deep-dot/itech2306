@@ -31,10 +31,10 @@ public class MenuSystem {
 			System.out.print("Select room number please: ");
 			enterRoomNum = scan.nextInt();
 
-			if (enterRoomNum >= 1 && enterRoomNum <= 3) {
+			if (enterRoomNum >= 1 && enterRoomNum <= roomCount) {
 				break;
 			} else {
-				System.out.println("Invalid input. Please enter a number between 1 and 3.");
+				System.out.println("Invalid input. Please enter a number between 1 and " + roomCount + ".");
 			}
 		}
 
@@ -66,7 +66,7 @@ public class MenuSystem {
 				}
 			} else {
 				System.out.println("❌ Invalid input. Please enter a valid number.");
-				scan.next(); // consume invalid input
+				scan.next(); 
 			}
 		}
 
@@ -80,7 +80,7 @@ public class MenuSystem {
 				}
 			} else {
 				System.out.println("❌ Invalid input. Please enter a valid number.");
-				scan.next(); // consume invalid input
+				scan.next(); 
 			}
 		}
 
@@ -94,11 +94,11 @@ public class MenuSystem {
 				}
 			} else {
 				System.out.println("❌ Invalid input. Please enter a whole number.");
-				scan.next(); // consume invalid input
+				scan.next(); 
 			}
 		}
 
-		scan.nextLine(); // consume leftover newline after nextInt
+		scan.nextLine(); 
 
 		return new Movie(title, adultCost, childCost, totalTime);
 	}
@@ -106,7 +106,6 @@ public class MenuSystem {
 	public void showSchedule() {
 		int selectedRoom = selectRoom();
 
-		// Adjust for 0-based indexing
 		RoomSchedule room = curTheatre.getRoomSchedule().get(selectedRoom - 1);
 
 		int movieCount = room.getNumberOfScheduledMovies();

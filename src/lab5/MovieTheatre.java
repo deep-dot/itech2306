@@ -72,7 +72,8 @@ public class MovieTheatre {
 	// Getters for all fields:
 	
 	public ArrayList<RoomSchedule> getRoomSchedule() {
-	    return scheduleForRoom;
+		return new ArrayList<>(scheduleForRoom);
+		//return scheduleForRoom;
 	}
 
 	public int getTotalRooms() {
