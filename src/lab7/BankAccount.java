@@ -43,7 +43,6 @@ public class BankAccount {
 	    boolean success = fromAccount.withdraw(amount);
 
 	    if (success) {
-	        // Deposit into this account
 	        this.deposit(amount);
 	        System.out.println("Transfer successful.");
 	    } else {

@@ -44,7 +44,7 @@ public class BankAccountTest {
     @Test
     public void testWithdrawMoreThanBalance() {
         BankAccount acc = new BankAccount(100, "test");
-        boolean result = acc.withdraw(150); // too much
+        boolean result = acc.withdraw(150); 
         assertFalse(result);
         assertEquals(100, acc.getBalance(), 0.001);
     }
